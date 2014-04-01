@@ -1,42 +1,40 @@
 class AuthenticationController < ApplicationController
-  helper_method :request_token, :access_token
+  before_filter :redirect_to_root, if: :authenticated?, except: [:sign_out]
 
   def authorize
-    if authorized?
-      redirect_to authorized_path
-    else
-      redirect_to(new_request_token.continue_authorization_url)
-    end
+    redirect_to(new_request_token.continue_authorization_url)
   end
 
   def authorized
-    new_access_token unless authorized?
+    authenticate(person_from_access_token)
+    redirect_to root_path
   end
 
   def sign_out
-    session.delete(:access_token)
+    deauthenticate
     redirect_to root_path
   end
 
   private
 
-  def authorized?
-    access_token.present?
+  def redirect_to_root
+    redirect_to root_path
+    return false
+  end
+
+  def person_from_access_token
+    access_token = AccessToken.new(use_request_token)
+    Person.find_or_initialize_by(access_token: access_token.to_s).tap do |person|
+      person.username = access_token.username
+      person.save
+    end
   end
 
   def new_request_token
     session[:request_token] = RequestToken.new
   end
 
-  def new_access_token
-    session[:access_token] = AccessToken.new(session.delete(:request_token))
-  end
-
-  def request_token
-    session[:request_token]
-  end
-
-  def access_token
-    session[:access_token]
+  def use_request_token
+    session.delete(:request_token)
   end
 end
