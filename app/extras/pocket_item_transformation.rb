@@ -1,5 +1,5 @@
 class PocketItemTransformation
-  include PocketCredentials
+  attr_reader :person, :pocket_items
 
   def initialize(person, pocket_items)
     @person = person
@@ -7,18 +7,10 @@ class PocketItemTransformation
   end
 
   def perform
-    Typhoeus.post "https://getpocket.com/v3/send", body: post_body
+    person.to_client.modify(actions)
   end
 
   private
-
-  attr_reader :person, :pocket_items
-
-  def post_body
-    { consumer_key: consumer_key,
-      access_token: person.access_token,
-      actions: actions.to_json }
-  end
 
   def actions
     pocket_items.collect do |pocket_item|

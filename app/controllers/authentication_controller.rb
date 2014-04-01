@@ -1,8 +1,6 @@
 class AuthenticationController < ApplicationController
   helper_method :request_token, :access_token
 
-  rescue_from AccessToken::TokenUnobtainable, with: :sign_out
-
   def authorize
     if authorized?
       redirect_to authorized_path
