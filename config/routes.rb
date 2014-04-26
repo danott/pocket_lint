@@ -3,5 +3,7 @@ PocketLint::Application.routes.draw do
   get 'authorized', to: 'authentication#authorized', as: :authorized
   get 'sign-out', to: 'authentication#sign_out', as: :sign_out
 
+  resource :person, only: [:update]
+
   root "root#index"
 end

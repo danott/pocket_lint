@@ -48,5 +48,5 @@ end
 # gem 'debugger', group: [:development, :test]
 
 gem 'guard-minitest'
-gem 'pocket-ruby', github: 'turadg/pocket-ruby', ref: 'cfc8b9fd95e16a14062a5f11ee52be31f5ee2777'
+gem 'pocket-ruby', github: "danott/pocket-ruby", branch: "security"
 gem 'pg'

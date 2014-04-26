@@ -1,3 +1,25 @@
 h1 Signed in as #{@person.username}
+
 ul
   li = link_to "Sign Out", sign_out_path
+
+= form_for @person do |f|
+
+  div
+    = f.label(:criteria, "How long before items in your Pocket should be considered lint?")
+  div
+    = f.select(:criteria, criteria_options)
+    | Days
+
+  div
+    = f.label(:action, "What should we do with the lint in your Pocket?")
+  div
+    = f.select(:action, action_options)
+
+  div
+    = f.label(:frequency, "When should we lint your Pocket?")
+  div
+    = f.select(:frequency, frequency_options)
+
+  div
+    = f.submit("Save")

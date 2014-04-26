@@ -20,6 +20,12 @@ class ApplicationController < ActionController::Base
   end
 
   def load_person
-    @person = Person.find(session[:person_id])
+    begin
+      @person = Person.find(session[:person_id])
+    rescue ActiveRecord::RecordNotFound
+      deauthenticate
+      redirect_to :root
+      return false
+    end
   end
 end

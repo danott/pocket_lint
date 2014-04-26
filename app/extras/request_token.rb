@@ -1,9 +1,9 @@
 class RequestToken < SimpleDelegator
   def initialize
-    super Pocket.get_code(redirect_uri: PocketCredentials.redirect_uri)
+    super Pocket.get_code()
   end
 
   def continue_authorization_url
-    Pocket.authorize_url(code: __getobj__, redirect_uri: PocketCredentials.redirect_uri)
+    Pocket.authorize_url(request_token: __getobj__)
   end
 end

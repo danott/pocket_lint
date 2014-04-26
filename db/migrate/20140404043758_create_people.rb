@@ -3,6 +3,8 @@ class CreatePeople < ActiveRecord::Migration
     create_table :people do |t|
       t.string :username
       t.string :access_token
+      t.text :preferences
+
       t.timestamps
     end
   end
