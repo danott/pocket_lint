@@ -1,16 +1,16 @@
-class AuthenticationController < ApplicationController
-  before_filter :redirect_to_root, if: :authenticated?, except: [:sign_out]
+class AuthenticationsController < ApplicationController
+  before_filter :redirect_to_root, if: :authenticated?, except: [:destroy]
 
-  def authorize
+  def new
     redirect_to(new_request_token.continue_authorization_url)
   end
 
-  def authorized
+  def create
     authenticate(person_from_access_token)
     redirect_to root_path
   end
 
-  def sign_out
+  def destroy
     deauthenticate
     redirect_to root_path
   end

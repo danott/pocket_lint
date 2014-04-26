@@ -1,7 +1,7 @@
 h1 Signed in as #{@person.username}
 
 ul
-  li = link_to "Sign Out", sign_out_path
+  li = link_to "Sign Out", authentication_path, method: :delete
 
 = form_for @person do |f|
 
