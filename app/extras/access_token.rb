@@ -7,6 +7,13 @@ class AccessToken < SimpleDelegator
     super result['access_token']
   end
 
+  def to_person
+    Person.find_or_initialize_by(access_token: to_s).tap do |person|
+      person.username = username
+      person.save
+    end
+  end
+
   private
 
   attr_reader :request_token

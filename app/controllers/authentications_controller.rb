@@ -17,21 +17,17 @@ class AuthenticationsController < ApplicationController
 
   private
 
-  def redirect_to_root
-    redirect_to root_path
-    return false
+  def new_request_token
+    session[:request_token] = RequestToken.new
   end
 
   def person_from_access_token
-    access_token = AccessToken.new(use_request_token)
-    Person.find_or_initialize_by(access_token: access_token.to_s).tap do |person|
-      person.username = access_token.username
-      person.save
-    end
+    AccessToken.new(use_request_token).to_person
   end
 
-  def new_request_token
-    session[:request_token] = RequestToken.new
+  def redirect_to_root
+    redirect_to root_path
+    return false
   end
 
   def use_request_token

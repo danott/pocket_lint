@@ -1,9 +1,6 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
-
-  helper_method :authenticated?
-
-  before_filter :load_person, if: :authenticated?
+  before_filter :load_person
 
   private
 
@@ -20,12 +17,10 @@ class ApplicationController < ActionController::Base
   end
 
   def load_person
-    begin
+    if authenticated?
       @person = Person.find(session[:person_id])
-    rescue ActiveRecord::RecordNotFound
-      deauthenticate
-      redirect_to :root
-      return false
+    else
+      @person = Struct.new("NilPerson").new
     end
   end
 end

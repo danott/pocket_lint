@@ -4,5 +4,5 @@ PocketLint::Application.routes.draw do
   end
   resource :person, only: [:update]
 
-  root "root#index"
+  root "people#show"
 end
