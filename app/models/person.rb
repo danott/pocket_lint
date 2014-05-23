@@ -1,4 +1,6 @@
 class Person < ActiveRecord::Base
+  include NullObject
+
   store :preferences, accessors: [:action, :frequency, :criteria], coder: JSON
 
   after_initialize :defaults

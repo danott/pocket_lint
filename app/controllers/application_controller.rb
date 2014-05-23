@@ -20,7 +20,7 @@ class ApplicationController < ActionController::Base
     if authenticated?
       @person = Person.find(session[:person_id])
     else
-      @person = Struct.new("NilPerson").new
+      @person = Person.null
     end
   end
 end
