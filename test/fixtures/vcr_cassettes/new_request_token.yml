@@ -1,0 +1,53 @@
+---
+http_interactions:
+- request:
+    method: post
+    uri: https://getpocket.com/v3/oauth/request
+    body:
+      encoding: UTF-8
+      string: '{"consumer_key":"<POCKET_CONSUMER_KEY>","redirect_uri":"<POCKET_REDIRECT_URI>"}'
+    headers:
+      User-Agent:
+      - Pocket Ruby Gem 0.0.5
+      Content-Type:
+      - application/json
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - '*/*'
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Cache-Control:
+      - private
+      Content-Type:
+      - application/x-www-form-urlencoded
+      Date:
+      - Mon, 26 May 2014 03:44:28 GMT
+      Expires:
+      - Thu, 19 Nov 1981 08:52:00 GMT
+      P3p:
+      - policyref="/w3c/p3p.xml", CP="ALL CURa ADMa DEVa OUR IND UNI COM NAV INT STA
+        PRE"
+      Pragma:
+      - no-cache
+      Server:
+      - Apache
+      Set-Cookie:
+      - PHPSESSID=lgrcsb8pn2hacnnmpjh31o72n5; path=/
+      Status:
+      - 200 OK
+      X-Source:
+      - Pocket
+      Content-Length:
+      - '35'
+      Connection:
+      - keep-alive
+    body:
+      encoding: UTF-8
+      string: code=8f2f900a-9c87-e9a7-640a-56a3f8
+    http_version: 
+  recorded_at: Mon, 26 May 2014 03:44:29 GMT
+recorded_with: VCR 2.9.1

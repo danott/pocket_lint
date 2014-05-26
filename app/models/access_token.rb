@@ -2,6 +2,8 @@ class AccessToken < SimpleDelegator
   attr_reader :username
 
   def initialize(request_token)
+    raise ArgumentError unless request_token.is_a?(RequestToken)
+
     @request_token = request_token
     @username = result['username']
     super result['access_token']

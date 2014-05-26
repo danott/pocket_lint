@@ -9,7 +9,7 @@ describe Person do
     end
 
     it "should archive by default" do
-      subject.lint_action.must_equal "archive"
+      subject.action.must_equal "archive"
     end
 
     it "should run once a month by default" do
@@ -17,7 +17,7 @@ describe Person do
     end
 
     it "should consider items stale after 7 days" do
-      subject.days_considered_lint.must_equal 7
+      subject.criteria.must_equal 7
     end
   end
 end

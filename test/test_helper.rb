@@ -10,7 +10,14 @@ class ActiveSupport::TestCase
   #
   # Note: You'll currently still have to declare fixtures explicitly in integration tests
   # -- they do not yet inherit this setting
-  fixtures :all
+  fixtures [:people]
 
   # Add more helper methods to be used by all tests here...
+end
+
+VCR.configure do |c|
+  c.hook_into :webmock
+  c.cassette_library_dir = 'test/fixtures/vcr_cassettes'
+  c.filter_sensitive_data('<POCKET_CONSUMER_KEY>') { ENV['POCKET_CONSUMER_KEY'] }
+  c.filter_sensitive_data('<POCKET_REDIRECT_URI>') { ENV['POCKET_REDIRECT_URI'] }
 end

@@ -1,8 +1,10 @@
 class AuthenticationsController < ApplicationController
+  include Authentication
+
   before_filter :redirect_to_root, if: :authenticated?, except: [:destroy]
 
   def new
-    redirect_to(new_request_token.continue_authorization_url)
+    redirect_to new_request_token.continue_authorization_url
   end
 
   def create
