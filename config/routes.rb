@@ -1,11 +1,11 @@
 PocketLint::Application.routes.draw do
   resource :authentication, only: [:new, :destroy] do
-    get "create", to: :create, as: :create
+    get 'update', as: :update
   end
 
   resource :person, only: [:update] do
-    delete "clean_pocket", to: :clean_pocket, as: :clean_pocket
+    delete 'clean', as: :clean
   end
 
-  root "people#show"
+  root 'people#show'
 end

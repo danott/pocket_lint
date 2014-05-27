@@ -23,7 +23,7 @@ class Person < ActiveRecord::Base
     Pocket.client(access_token: access_token)
   end
 
-  def clean_pocket
+  def clean
     ModifyPocketItems.call(self, pocket_lint)
   end
 

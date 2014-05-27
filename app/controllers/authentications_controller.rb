@@ -7,7 +7,7 @@ class AuthenticationsController < ApplicationController
     redirect_to new_request_token.continue_authorization_url
   end
 
-  def create
+  def update
     authenticate(person_from_access_token)
     redirect_to root_path
   end

@@ -14,8 +14,8 @@ class PeopleController < ApplicationController
     redirect_to root_path
   end
 
-  def clean_pocket
-    @person.clean_pocket
+  def clean
+    @person.clean
     redirect_to root_path
   end
 
