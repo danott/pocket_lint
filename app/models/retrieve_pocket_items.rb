@@ -1,4 +1,4 @@
-class GetPocketItems
+class RetrievePocketItems
   include Service
 
   attr_reader :person

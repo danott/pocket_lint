@@ -22,3 +22,5 @@ h1 Signed in as #{@person.username}
 
   div
     = f.submit("Save")
+
+= button_to "Clean Now!", clean_pocket_person_path, method: :delete

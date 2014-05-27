@@ -24,6 +24,16 @@ class Person < ActiveRecord::Base
   end
 
   def clean_pocket
-    CleanPocket.call(person)
+    ModifyPocketItems.call(self, pocket_lint)
+  end
+
+  def pocket_lint
+    pocket_items.select do |item|
+      item.time_added < criteria.days.ago
+    end
+  end
+
+  def pocket_items
+    @pocket_items ||= RetrievePocketItems.call(self)
   end
 end
