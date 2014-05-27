@@ -2,7 +2,7 @@ module Authentication
   extend ActiveSupport::Concern
 
   included do
-    before_filter :load_person
+    before_filter :set_person
   end
 
   def authenticated?
@@ -17,7 +17,7 @@ module Authentication
     session.delete(:person_id)
   end
 
-  def load_person
+  def set_person
     if authenticated?
       @person = Person.find(session[:person_id])
     else
