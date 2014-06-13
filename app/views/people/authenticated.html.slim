@@ -1,26 +1,25 @@
-h1 Signed in as #{@person.username}
-
-= button_to "Sign Out", authentication_path, method: :delete
+h1 Pocket Linter
 
 = form_for @person do |f|
+  .field
+    .label
+      = f.label(:action, "How should we clean lint?")
+    .input
+      = f.select(:action, action_options)
 
-  div
-    = f.label(:criteria, "How long before items in your Pocket should be considered lint?")
-  div
-    = f.select(:criteria, criteria_options)
-    | Days
+  .field
+    .label
+      = f.label(:criteria, "What should be considered lint?")
+    .input
+      = f.select(:criteria, criteria_options)
 
-  div
-    = f.label(:action, "What should we do with the lint in your Pocket?")
-  div
-    = f.select(:action, action_options)
+  .field
+    .input
+      = f.submit("Clean Pocket Now")
 
-  div
-    = f.label(:frequency, "When should we lint your Pocket?")
-  div
-    = f.select(:frequency, frequency_options)
+p
+  | Signed in as
+  strong &nbsp;#{@person.username}
 
-  div
-    = f.submit("Save")
-
-= button_to "Clean Now!", clean_person_path, method: :delete
+p
+  a.sign_out href=end_authentication_path Sign out

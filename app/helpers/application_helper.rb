@@ -1,10 +1,12 @@
 module ApplicationHelper
   def action_options
-    [["Archive the items", "archive"], ["Delete the items", "delete"]]
+    [["Archive", "archive"], ["Delete", "delete"]]
   end
 
   def criteria_options
-    (1..31)
+    (1..31).map do |digit|
+      ["Items older than #{pluralize(digit, "day")}", digit]
+    end
   end
 
   def frequency_options
@@ -14,5 +16,4 @@ module ApplicationHelper
       ["Every day", "daily"]
     ]
   end
-
 end
