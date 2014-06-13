@@ -4,9 +4,7 @@ PocketLint::Application.routes.draw do
     get 'end', to: :destroy, as: :end
   end
 
-  resource :person, only: [:update] do
-    delete 'clean', as: :clean
-  end
+  resource :person, only: [:show, :update]
 
   root 'people#show'
 end

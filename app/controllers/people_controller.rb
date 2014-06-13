@@ -11,12 +11,7 @@ class PeopleController < ApplicationController
 
   def update
     @person.update_attributes(person_params)
-    redirect_to root_path
-  end
-
-  def clean
-    @person.clean
-    redirect_to root_path
+    # @person.clean
   end
 
   private

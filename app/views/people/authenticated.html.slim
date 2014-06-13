@@ -17,9 +17,6 @@ h1 Pocket Linter
     .input
       = f.submit("Clean Pocket Now")
 
-p
-  | Signed in as
-  strong &nbsp;#{@person.username}
-
-p
-  a.sign_out href=end_authentication_path Sign out
+.signed_in
+  p Signed in as #{@person.username}
+  p: a href=end_authentication_path Sign out

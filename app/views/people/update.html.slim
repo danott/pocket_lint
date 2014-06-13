@@ -1,0 +1,5 @@
+h1 Pocket Linter
+p Huzzah! Your #{link_to_pocket} is now clean!
+= button_to "Sign out", authentication_path, method: :delete
+.signed_in
+  p Signed in as #{link_to @person.username, root_path}

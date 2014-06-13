@@ -16,4 +16,8 @@ module ApplicationHelper
       ["Every day", "daily"]
     ]
   end
+
+  def link_to_pocket
+    link_to "Pocket", "https://getpocket.com"
+  end
 end
