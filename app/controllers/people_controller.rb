@@ -11,7 +11,7 @@ class PeopleController < ApplicationController
 
   def update
     @person.update_attributes(person_params)
-    # @person.clean
+    @person.clean
   end
 
   private
