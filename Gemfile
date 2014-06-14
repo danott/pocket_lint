@@ -1,4 +1,5 @@
 source 'https://rubygems.org'
+ruby '2.0.0'
 
 gem 'dotenv-rails', :groups => [:development, :test]
 gem 'vcr', :groups => [:test]
@@ -49,3 +50,4 @@ end
 gem 'guard-minitest'
 gem 'pocket-ruby', github: "danott/pocket-ruby", branch: "security"
 gem 'pg'
+gem 'rails_12factor', group: :production
