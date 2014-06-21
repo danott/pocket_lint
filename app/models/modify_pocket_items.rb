@@ -9,7 +9,7 @@ class ModifyPocketItems
   end
 
   def call
-    person.to_client.modify(actions)
+    person.to_client.modify(actions) if actions.any?
   end
 
   private
