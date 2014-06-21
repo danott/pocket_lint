@@ -1,5 +1,6 @@
 h1 Pocket Linter
-p Huzzah! Your #{link_to_pocket} is now clean!
+p Huzzah! Your Pocket is now clean!
+p If I just saved you some trouble, maybe you'd like to #{link_to_square_cash "buy me a tasty beverage"}.
 = button_to "Sign out", authentication_path, method: :delete
 .signed_in
   p Signed in as #{link_to @person.username, root_path}

@@ -20,4 +20,12 @@ module ApplicationHelper
   def link_to_pocket
     link_to "Pocket", "https://getpocket.com"
   end
+
+  def link_to_square_cash(text)
+    mail_to "thedanielott@gmail.com",
+      text,
+      cc: "cash@square.com",
+      subject: "Here's your $2!",
+      body: "Thanks for linting my Pocket!"
+  end
 end
