@@ -10,13 +10,14 @@ class PeopleController < ApplicationController
   end
 
   def update
-    @person.update_attributes(person_params)
-    @person.clean
+    if @person.update_attributes(person_params)
+      @person.clean
+    end
   end
 
   private
 
   def person_params
-    params.require(:person).permit(:action, :frequency, :criteria)
+    params.require(:person).permit(:action, :considered_lint_s)
   end
 end

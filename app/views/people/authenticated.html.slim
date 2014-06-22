@@ -9,9 +9,9 @@ h1 Pocket Linter
 
   .field
     .label
-      = f.label(:criteria, "What should be considered lint?")
+      = f.label(:considered_lint_s, "What should be considered lint?")
     .input
-      = f.select(:criteria, criteria_options)
+      = f.select(:considered_lint_s, considered_lint_s_options)
 
   .field
     .input
