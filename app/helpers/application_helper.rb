@@ -43,10 +43,6 @@ module ApplicationHelper
   end
 
   def link_to_square_cash(text)
-    mail_to "thedanielott@gmail.com",
-      text,
-      cc: "cash@square.com",
-      subject: "Here's your $2!",
-      body: "Thanks for linting my Pocket!"
+    link_to text, 'https://cash.me/$danott'
   end
 end
