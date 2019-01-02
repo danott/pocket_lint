@@ -6,7 +6,7 @@ gem 'vcr', :groups => [:test]
 gem 'webmock', :groups => [:test]
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem 'rails', '~> 4.1.0'
+gem 'rails', '~> 4.2.0'
 
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 4.0.0'
@@ -49,5 +49,5 @@ end
 
 gem 'guard-minitest'
 gem 'pocket-ruby', github: "danott/pocket-ruby", branch: "security"
-gem 'pg'
+gem 'pg', "< 1.0.0"
 gem 'rails_12factor', group: :production
