@@ -1,5 +1,5 @@
 source 'https://rubygems.org'
-ruby '2.1.5'
+ruby '2.3.7'
 
 gem 'dotenv-rails', :groups => [:development, :test]
 gem 'vcr', :groups => [:test]
